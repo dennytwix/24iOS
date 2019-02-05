@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		33933BE3FFD173F10F290811 /* Pods_Movies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85C96D797F5D4B80DB6E94C5 /* Pods_Movies.framework */; };
 		9A3BB2F32209EB4900722A40 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3BB2F22209EB4900722A40 /* AppDelegate.swift */; };
-		9A3BB2F52209EB4900722A40 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3BB2F42209EB4900722A40 /* ViewController.swift */; };
 		9A3BB2F82209EB4900722A40 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A3BB2F62209EB4900722A40 /* Main.storyboard */; };
 		9A3BB2FA2209EB4900722A40 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A3BB2F92209EB4900722A40 /* Assets.xcassets */; };
 		9A3BB2FD2209EB4900722A40 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A3BB2FB2209EB4900722A40 /* LaunchScreen.storyboard */; };
@@ -34,7 +33,6 @@
 		8EB390E213811350330B11C5 /* Pods-MoviesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoviesTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MoviesTests/Pods-MoviesTests.release.xcconfig"; sourceTree = "<group>"; };
 		9A3BB2EF2209EB4900722A40 /* Movies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A3BB2F22209EB4900722A40 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9A3BB2F42209EB4900722A40 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9A3BB2F72209EB4900722A40 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9A3BB2F92209EB4900722A40 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9A3BB2FC2209EB4900722A40 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -109,12 +107,10 @@
 		9A3BB2F12209EB4900722A40 /* Movies */ = {
 			isa = PBXGroup;
 			children = (
+				9A3BB3152209F30200722A40 /* Supporting Files */,
+				9A3BB3122209F23900722A40 /* Modules */,
 				9A3BB2F22209EB4900722A40 /* AppDelegate.swift */,
-				9A3BB2F42209EB4900722A40 /* ViewController.swift */,
 				9A3BB2F62209EB4900722A40 /* Main.storyboard */,
-				9A3BB2F92209EB4900722A40 /* Assets.xcassets */,
-				9A3BB2FB2209EB4900722A40 /* LaunchScreen.storyboard */,
-				9A3BB2FE2209EB4900722A40 /* Info.plist */,
 			);
 			path = Movies;
 			sourceTree = "<group>";
@@ -126,6 +122,39 @@
 				9A3BB3092209EB4900722A40 /* Info.plist */,
 			);
 			path = MoviesTests;
+			sourceTree = "<group>";
+		};
+		9A3BB3122209F23900722A40 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				9A3BB3142209F2E000722A40 /* MovieDetails */,
+				9A3BB3132209F2D900722A40 /* MovieList */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		9A3BB3132209F2D900722A40 /* MovieList */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MovieList;
+			sourceTree = "<group>";
+		};
+		9A3BB3142209F2E000722A40 /* MovieDetails */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MovieDetails;
+			sourceTree = "<group>";
+		};
+		9A3BB3152209F30200722A40 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9A3BB2F92209EB4900722A40 /* Assets.xcassets */,
+				9A3BB2FB2209EB4900722A40 /* LaunchScreen.storyboard */,
+				9A3BB2FE2209EB4900722A40 /* Info.plist */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -301,7 +330,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A3BB2F52209EB4900722A40 /* ViewController.swift in Sources */,
 				9A3BB2F32209EB4900722A40 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -467,7 +495,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P2WXCB7LXR;
-				INFOPLIST_FILE = Movies/Info.plist;
+				INFOPLIST_FILE = "Movies/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -486,7 +514,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P2WXCB7LXR;
-				INFOPLIST_FILE = Movies/Info.plist;
+				INFOPLIST_FILE = "Movies/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
