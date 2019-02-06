@@ -12,8 +12,13 @@ class MovieListTableViewCell: UITableViewCell {
   @IBOutlet weak var backgroundImageView: UIImageView!
   @IBOutlet weak var titleLabel: UILabel!
 
-  override func awakeFromNib() {
-      super.awakeFromNib()
-      // Initialization code
+  override func prepareForReuse() {
+    // TODO: Placeholder image
+    backgroundImageView.image = nil
+    titleLabel.text = ""
+  }
+
+  func update(item: MovieListDisplayItem) {
+    titleLabel.text = item.title
   }
 }

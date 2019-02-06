@@ -40,6 +40,13 @@ extension MovieListController: MovieListOutput {
   }
 
   func didReceive(error: Error) {
+    print(error.localizedDescription)
     // TODO: Show error
+  }
+}
+
+extension MovieListController: MovieListDisplayItemSource {
+  var displayItems: [MovieListDisplayItem] {
+    return itemsStorage.movieListItems.map { MovieListDisplayItem(item: $0) }
   }
 }

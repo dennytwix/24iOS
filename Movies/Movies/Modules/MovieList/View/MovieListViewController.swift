@@ -9,22 +9,47 @@
 import UIKit
 
 class MovieListViewController: UITableViewController {
-  
-    override func viewDidLoad() {
-        super.viewDidLoad()
+  var tableViewItemsSource: MovieListDisplayItemSource!
+  var output: MovieListViewOutput?
 
-        // Do any additional setup after loading the view.
-    }
-    
+  required init?(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)
 
-    /*
-    // MARK: - Navigation
+    Dependencies.shared.setup(vc: self)
+  }
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+  override func viewDidLoad() {
+    super.viewDidLoad()
 
+    tableView.estimatedRowHeight = 145
+
+    output?.viewDidLoad()
+  }
+}
+
+extension MovieListViewController: MovieListViewInput {
+  func reloadData() {
+    tableView.reloadData()
+  }
+
+  func insetrtItems(at indexPaths: [IndexPath]) {
+    tableView.beginUpdates()
+    tableView.insertRows(at: indexPaths, with: .automatic)
+    tableView.endUpdates()
+  }
+}
+
+extension MovieListViewController {
+  override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return tableViewItemsSource.displayItems.count
+  }
+
+  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: "\(MovieListTableViewCell.self)", for: indexPath) as! MovieListTableViewCell
+    let item = tableViewItemsSource.displayItems[indexPath.row]
+
+    cell.update(item: item)
+
+    return cell
+  }
 }
