@@ -9,7 +9,8 @@
 import Foundation
 
 protocol MovieListInput: class {
-  func loadData()
+  func reset()
+  func loadNextPage()
 }
 
 protocol MovieListOutput: class {
