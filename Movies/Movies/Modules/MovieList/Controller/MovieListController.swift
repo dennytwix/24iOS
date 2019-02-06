@@ -20,7 +20,16 @@ extension MovieListController: MovieListViewOutput {
   }
 
   func willDisplayItem(at indexPath: IndexPath) {
+    loadNextPageIfNeeded(index: indexPath.row)
+  }
 
+  private func loadNextPageIfNeeded(index: Int) {
+    let threshold = 4
+    let itemsLeft = itemsStorage.movieListItems.count - index
+
+    guard itemsLeft < threshold else { return }
+
+    model.loadNextPage()
   }
 
   func refresh() {

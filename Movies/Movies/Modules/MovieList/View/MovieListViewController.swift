@@ -21,8 +21,8 @@ class MovieListViewController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    tableView.estimatedRowHeight = 145
-    tableView.rowHeight = UITableView.automaticDimension
+    tableView.estimatedRowHeight = 180
+//    tableView.rowHeight = UITableView.automaticDimension
 
     setupRefreshControl()
 
@@ -47,7 +47,7 @@ extension MovieListViewController: MovieListViewInput {
 
   func insetrtItems(at indexPaths: [IndexPath]) {
     tableView.beginUpdates()
-    tableView.insertRows(at: indexPaths, with: .automatic)
+    tableView.insertRows(at: indexPaths, with: .none)
     tableView.endUpdates()
   }
 }
@@ -64,5 +64,11 @@ extension MovieListViewController {
     cell.update(item: item)
 
     return cell
+  }
+}
+
+extension MovieListViewController {
+  override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    output?.willDisplayItem(at: indexPath)
   }
 }

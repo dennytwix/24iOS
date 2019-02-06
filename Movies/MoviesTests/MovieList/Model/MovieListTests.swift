@@ -166,10 +166,11 @@ extension MovieListTests {
 
     return MovieListResponse(page: 2, totalPages: 2, results: results)
   }
-}
 
-extension MovieListItem {
-  static func createTestItem(id: Int) -> MovieListItem {
-    return MovieListItem(id: id, title: "Item: \(id)")
+  var pageResponseLong: MovieListResponse {
+    let results = (0..<20).map { MovieListItem.createTestItem(id: $0) }
+
+    return MovieListResponse(page: 1, totalPages: 2, results: results)
   }
 }
+

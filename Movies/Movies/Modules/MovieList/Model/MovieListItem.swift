@@ -15,9 +15,17 @@ fileprivate enum Constants {
 struct MovieListItem: Decodable, Equatable {
   let id: Int
   let title: String
-  private let relativeImageURL: String
+  private let relativeImageURL: String?
+
+  init(id: Int, title: String, relativeImageURL: String) {
+    self.id = id
+    self.title = title
+    self.relativeImageURL = relativeImageURL
+  }
 
   var imageURL: URL? {
+    guard let relativeImageURL = relativeImageURL else { return nil }
+
     let urlWithoutSlash = String(relativeImageURL.dropFirst())
     return URL(string: urlWithoutSlash, relativeTo: Constants.baseImageURL)
   }

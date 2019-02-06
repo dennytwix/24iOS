@@ -17,12 +17,22 @@ class DefaultMovieListGateway: MovieListGateway {
   }
 
   func fetchItems(page: Int, completion: @escaping MovieListCompletion) {
+    let parameters = createParameters(page: page)
+
     AF.request("https://api.themoviedb.org/3/movie/popular", parameters: parameters).responseDecodable { (response: DataResponse<MovieListResponse>) in
       completion(response.result)
     }
   }
 
-  var parameters: Parameters {
+  func createParameters(page: Int) -> Parameters {
+    let parameters: Parameters = [
+      "page": page
+    ]
+
+    return parameters.merging(defaultParameters, uniquingKeysWith: { _, second in second })
+  }
+
+  var defaultParameters: Parameters {
     return ["api_key": apiKey]
   }
 }
