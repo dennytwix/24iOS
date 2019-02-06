@@ -161,7 +161,6 @@
 			children = (
 				9A3BB32E220AE92A00722A40 /* MovieList */,
 				9A3BB3092209EB4900722A40 /* Info.plist */,
-				9A3BB333220AEB2C00722A40 /* TestError.swift */,
 			);
 			path = MoviesTests;
 			sourceTree = "<group>";
@@ -171,7 +170,6 @@
 			children = (
 				9AA400F9220B096300222C62 /* Common */,
 				9A3BB3132209F2D900722A40 /* MovieList */,
-				9A3BB3142209F2E000722A40 /* MovieDetails */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -181,17 +179,10 @@
 			children = (
 				9A3BB3282209F50700722A40 /* MovieListConfig.swift */,
 				9A3BB3182209F3B200722A40 /* Model */,
-				9A3BB3162209F3AC00722A40 /* Controller */,
 				9A3BB3172209F3AC00722A40 /* View */,
+				9A3BB3162209F3AC00722A40 /* Controller */,
 			);
 			path = MovieList;
-			sourceTree = "<group>";
-		};
-		9A3BB3142209F2E000722A40 /* MovieDetails */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = MovieDetails;
 			sourceTree = "<group>";
 		};
 		9A3BB3152209F30200722A40 /* Supporting Files */ = {
@@ -215,6 +206,7 @@
 		9A3BB3172209F3AC00722A40 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9AA40102220B396000222C62 /* DisplayItem */,
 				9A3BB344220B067700722A40 /* Table */,
 				9A3BB337220AF48200722A40 /* MovieListViewIO.swift */,
 				9A3BB342220B05AD00722A40 /* MovieListViewController.swift */,
@@ -274,6 +266,7 @@
 		9A3BB33D220AF5B500722A40 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				9A3BB333220AEB2C00722A40 /* TestError.swift */,
 				9A3BB32F220AE94100722A40 /* TestMovieListGateway.swift */,
 				9AA40100220B2F0300222C62 /* MovieListItem+Create.swift */,
 				9A3BB331220AE96900722A40 /* TestMovieListModelOutput.swift */,
@@ -286,8 +279,6 @@
 			isa = PBXGroup;
 			children = (
 				9A3BB345220B068900722A40 /* MovieListTableViewCell.swift */,
-				9AA400FC220B0C5400222C62 /* MovieListDisplayItem.swift */,
-				9AA400FE220B0C8300222C62 /* MovieListDisplayItemSource.swift */,
 			);
 			path = Table;
 			sourceTree = "<group>";
@@ -298,6 +289,15 @@
 				9AA400FA220B097C00222C62 /* Dependencies.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		9AA40102220B396000222C62 /* DisplayItem */ = {
+			isa = PBXGroup;
+			children = (
+				9AA400FC220B0C5400222C62 /* MovieListDisplayItem.swift */,
+				9AA400FE220B0C8300222C62 /* MovieListDisplayItemSource.swift */,
+			);
+			path = DisplayItem;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

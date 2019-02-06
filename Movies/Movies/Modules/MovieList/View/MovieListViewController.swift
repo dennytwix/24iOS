@@ -22,8 +22,6 @@ class MovieListViewController: UITableViewController {
     super.viewDidLoad()
 
     tableView.estimatedRowHeight = 180
-//    tableView.rowHeight = UITableView.automaticDimension
-
     setupRefreshControl()
 
     output?.viewDidLoad()
@@ -52,6 +50,7 @@ extension MovieListViewController: MovieListViewInput {
   }
 }
 
+// MARK: - UITableViewDataSource
 extension MovieListViewController {
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return tableViewItemsSource.displayItems.count
@@ -67,6 +66,7 @@ extension MovieListViewController {
   }
 }
 
+// MARK: - UITableViewDelegate
 extension MovieListViewController {
   override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
     output?.willDisplayItem(at: indexPath)

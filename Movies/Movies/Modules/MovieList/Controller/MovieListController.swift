@@ -8,10 +8,16 @@
 
 import Foundation
 
-class MovieListController {
+class MovieListController: MovieListDisplayItemSource {
   weak var model: MovieListInput!
   weak var itemsStorage: MovieListStorage!
   weak var view: MovieListViewInput!
+
+  private(set) var displayItems: [MovieListDisplayItem] = []
+
+  private func refreshDisplayItems() {
+    displayItems = itemsStorage.movieListItems.map { MovieListDisplayItem(item: $0) }
+  }
 }
 
 extension MovieListController: MovieListViewOutput {
@@ -25,9 +31,9 @@ extension MovieListController: MovieListViewOutput {
 
   private func loadNextPageIfNeeded(index: Int) {
     let threshold = 4
-    let itemsLeft = itemsStorage.movieListItems.count - index
+    let itemsLeftAfterThisIndex = itemsStorage.movieListItems.count - index
 
-    guard itemsLeft < threshold else { return }
+    guard itemsLeftAfterThisIndex < threshold else { return }
 
     model.loadNextPage()
   }
@@ -40,22 +46,19 @@ extension MovieListController: MovieListViewOutput {
 
 extension MovieListController: MovieListOutput {
   func didReloadData() {
+    refreshDisplayItems()
     view.reloadData()
   }
 
   func didReceiveItems(indexes: [Int]) {
+    refreshDisplayItems()
+    
     let indexPaths = indexes.map { IndexPath(row: $0, section: 0) }
     view.insetrtItems(at: indexPaths)
   }
 
   func didReceive(error: Error) {
     print(error.localizedDescription)
-    // TODO: Show error
-  }
-}
-
-extension MovieListController: MovieListDisplayItemSource {
-  var displayItems: [MovieListDisplayItem] {
-    return itemsStorage.movieListItems.map { MovieListDisplayItem(item: $0) }
+    // TODO: Pass error to output
   }
 }

@@ -13,7 +13,15 @@ class MovieListTableViewCell: UITableViewCell {
   @IBOutlet weak var backgroundImageView: UIImageView!
   @IBOutlet weak var titleLabel: UILabel!
 
+  override func awakeFromNib() {
+    super.awakeFromNib()
+
+    backgroundImageView.kf.indicatorType = .activity
+  }
+
   override func prepareForReuse() {
+    super.prepareForReuse()
+    
     backgroundImageView.image = nil
     titleLabel.text = ""
   }
@@ -22,8 +30,6 @@ class MovieListTableViewCell: UITableViewCell {
     titleLabel.text = item.title
     guard let url = item.imageURL else { return }
 
-    let resource = ImageResource(downloadURL: url)
-    backgroundImageView.kf.indicatorType = .activity
-    backgroundImageView.kf.setImage(with: resource)
+    backgroundImageView.kf.setImage(with: url)
   }
 }
