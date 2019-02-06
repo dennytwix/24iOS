@@ -24,13 +24,25 @@ class MovieListViewController: UITableViewController {
     tableView.estimatedRowHeight = 145
     tableView.rowHeight = UITableView.automaticDimension
 
+    setupRefreshControl()
+
     output?.viewDidLoad()
+  }
+
+  private func setupRefreshControl() {
+    refreshControl = UIRefreshControl()
+    refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
+  }
+
+  @objc func refresh() {
+    output?.refresh()
   }
 }
 
 extension MovieListViewController: MovieListViewInput {
   func reloadData() {
     tableView.reloadData()
+    refreshControl?.endRefreshing()
   }
 
   func insetrtItems(at indexPaths: [IndexPath]) {
