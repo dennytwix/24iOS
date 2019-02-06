@@ -9,7 +9,7 @@
 import Foundation
 
 struct MovieListDisplayItem {
-  let imageURL: String
+  let imageURL: URL?
   let title: String
 }
 

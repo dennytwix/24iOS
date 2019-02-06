@@ -22,6 +22,7 @@ class MovieListViewController: UITableViewController {
     super.viewDidLoad()
 
     tableView.estimatedRowHeight = 145
+    tableView.rowHeight = UITableView.automaticDimension
 
     output?.viewDidLoad()
   }

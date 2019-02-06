@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class MovieListTableViewCell: UITableViewCell {
   @IBOutlet weak var backgroundImageView: UIImageView!
@@ -20,5 +21,12 @@ class MovieListTableViewCell: UITableViewCell {
 
   func update(item: MovieListDisplayItem) {
     titleLabel.text = item.title
+    guard let url = item.imageURL else { return }
+
+    let resource = ImageResource(downloadURL: url)
+    backgroundImageView.kf.indicatorType = .activity
+    backgroundImageView.kf.setImage(with: resource)
+
+    setNeedsLayout()
   }
 }
