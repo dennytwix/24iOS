@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol MovieListStorage {
+protocol MovieListStorage: class {
   var movieListItems: [MovieListItem] { get }
 }
