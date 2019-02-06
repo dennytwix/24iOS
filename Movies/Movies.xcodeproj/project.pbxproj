@@ -21,6 +21,9 @@
 		9A3BB3292209F50700722A40 /* MovieListConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3BB3282209F50700722A40 /* MovieListConfig.swift */; };
 		9A3BB32B220AD44200722A40 /* MovieListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3BB32A220AD44200722A40 /* MovieListTests.swift */; };
 		9A3BB32D220AE23B00722A40 /* MovieListStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3BB32C220AE23B00722A40 /* MovieListStorage.swift */; };
+		9A3BB330220AE94100722A40 /* TestMovieListGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3BB32F220AE94100722A40 /* TestMovieListGateway.swift */; };
+		9A3BB332220AE96900722A40 /* TestMovieListModelOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3BB331220AE96900722A40 /* TestMovieListModelOutput.swift */; };
+		9A3BB334220AEB2C00722A40 /* TestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3BB333220AEB2C00722A40 /* TestError.swift */; };
 		C056F4A459F75789FA2E4840 /* Pods_MoviesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA01F1EFD3B7A7D72EAE1E98 /* Pods_MoviesTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +59,9 @@
 		9A3BB3282209F50700722A40 /* MovieListConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieListConfig.swift; sourceTree = "<group>"; };
 		9A3BB32A220AD44200722A40 /* MovieListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListTests.swift; sourceTree = "<group>"; };
 		9A3BB32C220AE23B00722A40 /* MovieListStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListStorage.swift; sourceTree = "<group>"; };
+		9A3BB32F220AE94100722A40 /* TestMovieListGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestMovieListGateway.swift; sourceTree = "<group>"; };
+		9A3BB331220AE96900722A40 /* TestMovieListModelOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestMovieListModelOutput.swift; sourceTree = "<group>"; };
+		9A3BB333220AEB2C00722A40 /* TestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestError.swift; sourceTree = "<group>"; };
 		BA01F1EFD3B7A7D72EAE1E98 /* Pods_MoviesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoviesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD520EE14760F37CDCDD21EC /* Pods-MoviesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoviesTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MoviesTests/Pods-MoviesTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -134,8 +140,9 @@
 		9A3BB3062209EB4900722A40 /* MoviesTests */ = {
 			isa = PBXGroup;
 			children = (
-				9A3BB32A220AD44200722A40 /* MovieListTests.swift */,
+				9A3BB32E220AE92A00722A40 /* MovieList */,
 				9A3BB3092209EB4900722A40 /* Info.plist */,
+				9A3BB333220AEB2C00722A40 /* TestError.swift */,
 			);
 			path = MoviesTests;
 			sourceTree = "<group>";
@@ -211,6 +218,16 @@
 				9A3BB31F2209F3E600722A40 /* MovieListResponse.swift */,
 			);
 			path = Gateway;
+			sourceTree = "<group>";
+		};
+		9A3BB32E220AE92A00722A40 /* MovieList */ = {
+			isa = PBXGroup;
+			children = (
+				9A3BB32A220AD44200722A40 /* MovieListTests.swift */,
+				9A3BB32F220AE94100722A40 /* TestMovieListGateway.swift */,
+				9A3BB331220AE96900722A40 /* TestMovieListModelOutput.swift */,
+			);
+			path = MovieList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -402,7 +419,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A3BB334220AEB2C00722A40 /* TestError.swift in Sources */,
+				9A3BB332220AE96900722A40 /* TestMovieListModelOutput.swift in Sources */,
 				9A3BB32B220AD44200722A40 /* MovieListTests.swift in Sources */,
+				9A3BB330220AE94100722A40 /* TestMovieListGateway.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

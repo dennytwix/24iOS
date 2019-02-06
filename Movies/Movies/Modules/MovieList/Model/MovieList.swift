@@ -71,7 +71,24 @@ extension MovieList: MovieListInput {
   }
 
   private func proceed(items: [MovieListItem]) {
+    if movieListItems.isEmpty {
+      replace(items: items)
+    }
+    else {
+      append(items: items)
+    }
+  }
+
+  private func replace(items: [MovieListItem]) {
+    movieListItems = items
+    output?.didReloadData()
+  }
+
+  private func append(items: [MovieListItem]) {
+    let newIndexes = (0..<items.count).map { $0 + movieListItems.count }
     movieListItems.append(contentsOf: items)
+
+    output?.didReceiveItems(indexes: newIndexes)
   }
 
   private func proceed(error: Error) {

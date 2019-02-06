@@ -14,6 +14,7 @@ protocol MovieListInput: class {
 }
 
 protocol MovieListOutput: class {
-  func didReceive(items: [MovieListItem])
+  func didReloadData()
+  func didReceiveItems(indexes: [Int])
   func didReceive(error: Error)
 }
