@@ -14,7 +14,6 @@ class MovieListTableViewCell: UITableViewCell {
   @IBOutlet weak var titleLabel: UILabel!
 
   override func prepareForReuse() {
-    // TODO: Placeholder image
     backgroundImageView.image = nil
     titleLabel.text = ""
   }
@@ -26,7 +25,5 @@ class MovieListTableViewCell: UITableViewCell {
     let resource = ImageResource(downloadURL: url)
     backgroundImageView.kf.indicatorType = .activity
     backgroundImageView.kf.setImage(with: resource)
-
-    setNeedsLayout()
   }
 }
