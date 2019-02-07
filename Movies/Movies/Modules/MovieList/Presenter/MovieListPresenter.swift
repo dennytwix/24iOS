@@ -1,5 +1,5 @@
 //
-//  MovieListController.swift
+//  MovieListPresenter.swift
 //  Movies
 //
 //  Created by Denys Shchigrov on 06/02/2019.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class MovieListController: MovieListDisplayItemSource {
+class MovieListPresenter: MovieListDisplayItemSource {
   weak var model: MovieListInput!
   weak var itemsStorage: MovieListStorage!
   weak var view: MovieListViewInput!
@@ -20,7 +20,7 @@ class MovieListController: MovieListDisplayItemSource {
   }
 }
 
-extension MovieListController: MovieListViewOutput {
+extension MovieListPresenter: MovieListViewOutput {
   func viewDidLoad() {
     model.loadNextPage()
   }
@@ -44,7 +44,7 @@ extension MovieListController: MovieListViewOutput {
   }
 }
 
-extension MovieListController: MovieListOutput {
+extension MovieListPresenter: MovieListOutput {
   func didReloadData() {
     refreshDisplayItems()
     view.reloadData()

@@ -2,7 +2,7 @@
 iOS Client for *themoviedb.org*
 
 ### Notes
-* MVC architecture
+* MVP architecture
 * Model is implemented using TDD
 
 ### Desired improvements, which take time
