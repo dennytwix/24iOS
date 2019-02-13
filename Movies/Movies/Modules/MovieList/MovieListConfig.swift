@@ -6,14 +6,21 @@
 //  Copyright © 2019 dennytwix. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class MovieListConfig {
   var gateway: DefaultMovieListGateway!
   var model: MovieList!
   var presenter: MovieListPresenter!
 
-  func setupDependencies(vc: MovieListViewController) {
+  func createViewController() -> MovieListViewController {
+    let vc = UIStoryboard(name: "\(MovieListViewController.self)", bundle: nil).instantiateInitialViewController() as! MovieListViewController
+    setupDependencies(vc: vc)
+
+    return vc
+  }
+
+  private func setupDependencies(vc: MovieListViewController) {
     gateway = DefaultMovieListGateway(apiKey: "9386823c26c8a8aee1b3032320b5c4d3")
     model = MovieList(gateway: gateway)
     presenter = MovieListPresenter()
@@ -28,5 +35,3 @@ class MovieListConfig {
     vc.tableViewItemsSource = presenter
   }
 }
-
-

@@ -12,12 +12,6 @@ class MovieListViewController: UITableViewController {
   var tableViewItemsSource: MovieListDisplayItemSource!
   var output: MovieListViewOutput?
 
-  required init?(coder aDecoder: NSCoder) {
-    super.init(coder: aDecoder)
-
-    Dependencies.shared.setup(vc: self)
-  }
-
   override func viewDidLoad() {
     super.viewDidLoad()
 
