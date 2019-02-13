@@ -14,7 +14,7 @@ class MovieListConfig {
   var presenter: MovieListPresenter!
 
   func createViewController() -> MovieListViewController {
-    let vc = UIStoryboard(name: "\(MovieListViewController.self)", bundle: nil).instantiateInitialViewController() as! MovieListViewController
+    let vc = MovieListViewController.createFromStoryboard()
     setupDependencies(vc: vc)
 
     return vc
